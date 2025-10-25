@@ -1,0 +1,119 @@
+* { 
+    box-sizing: border-box; 
+    font-family: 'Poppins', sans-serif; 
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at 20% 30%, #00c3ff, #ffff1c 40%, #ff0099 100%);
+    background-attachment: fixed;
+    color: orange;
+    overflow: hidden;
+}
+
+h1 {
+    font-weight: 700;
+    color: orange;
+    margin-bottom: 100px;
+    text-shadow: 0 0 15px rgba(255, 165, 0, 0.7);
+}
+
+.game-container {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.25); /* frosted glass */
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 30px rgba(255,165,0,0.4);
+    transition: 0.4s ease;
+}
+
+.game-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 45px rgba(255,165,0,0.6);
+}
+
+.player {
+    position: absolute;
+    bottom: 0;
+    left: 60px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #ffbb33, #ff6600);
+    border-radius: 10px;
+    transition: bottom 0.2s;
+    box-shadow: 0 0 10px rgba(255,140,0,0.7);
+}
+
+.bar {
+    position: absolute;
+    right: -120px;
+    bottom: 0;
+    width: 80px;
+    height: 15px;
+    background: linear-gradient(90deg, #ff4500, #ffb347);
+    animation: moveBar 2s linear infinite;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(255,80,0,0.8);
+}
+
+@keyframes moveBar {
+    from { right: -120px; }
+    to { right: 100%; }
+}
+
+.score {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: orange;
+    text-shadow: 0 0 8px rgba(255,165,0,0.7);
+}
+
+.btn-custom {
+    background: linear-gradient(90deg, #ffb347, #ff7f00);
+    color: #fff3e0;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-custom:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255,165,0,0.7);
+}
+
+.jump {
+    animation: jump 0.6s ease-out;
+}
+
+@keyframes jump {
+    0% { bottom: 0; }
+    50% { bottom: 120px; }
+    100% { bottom: 0; }
+}
+
+.game-over {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: orange;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: center;
+    display: none;
+}
